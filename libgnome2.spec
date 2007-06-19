@@ -9,8 +9,8 @@
 
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
-Version: 2.18.0
-Release: %mkrel 2
+Version: 2.19.0
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-2.8.0-background.patch
@@ -18,8 +18,6 @@ Patch1: libgnome-2.8.0-background.patch
 Patch4: libgnome-defaulttheme.patch
 # (fc) 2.8.0-2mdk Stat gnome_user_private_dir before doing chmod, for SELinux (Fedora)
 Patch5: libgnome-2.15.1-stat-homedir.patch
-# (fc) 2.18.0-2mdv better set application name, useful for bug-buddy (SVN) (GNOME bug #424949)
-Patch6: libgnome-2.18.0-appname.patch
 
 License: LGPL
 Group: System/Libraries
@@ -65,7 +63,6 @@ needed in order to develop applications using the GNOME library
 %patch1 -p1 -b .background
 %patch4 -p1 -b .defaulttheme
 %patch5 -p1 -b .stathome
-%patch6 -p1 -b .appname
 
 %build
 
