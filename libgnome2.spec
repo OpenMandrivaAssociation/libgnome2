@@ -10,7 +10,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.19.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-2.8.0-background.patch
@@ -18,6 +18,12 @@ Patch1: libgnome-2.8.0-background.patch
 Patch4: libgnome-defaulttheme.patch
 # (fc) 2.8.0-2mdk Stat gnome_user_private_dir before doing chmod, for SELinux (Fedora)
 Patch5: libgnome-2.15.1-stat-homedir.patch
+# (fc) 2.19.1-2mdv mark gnome_program_init with sentinel (SUSE)
+Patch6: libgnome-sentinel.patch
+# (fc) 2.19.1-2mdv fix va_list usage (SUSE)
+Patch7: libgnome-2.19.1-va_list.patch
+# (fc) 2.19.1-2mdv enable sound server and events by default, remove almost default sound events
+Patch8: libgnome-2.19.1-sounds-default.patch
 
 License: LGPL
 Group: System/Libraries
@@ -63,6 +69,9 @@ needed in order to develop applications using the GNOME library
 %patch1 -p1 -b .background
 %patch4 -p1 -b .defaulttheme
 %patch5 -p1 -b .stathome
+%patch6 -p1 -b .sentinel
+%patch7 -p1 -b .va_list
+%patch8 -p1 -b .sound-defaults
 
 %build
 
