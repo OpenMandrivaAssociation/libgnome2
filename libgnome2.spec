@@ -10,7 +10,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.19.1
-Release: %mkrel 2
+Release: %mkrel 3
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-2.8.0-background.patch
@@ -28,7 +28,7 @@ Patch8: libgnome-2.19.1-sounds-default.patch
 License: LGPL
 Group: System/Libraries
 Url: http://www.gnome.org/
-Requires: mandrake_desk >= 9.0-6mdk
+Requires: desktop-common-data
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: libbzip2-devel
 BuildRequires: gnome-vfs2-devel >= %{req_gnomevfs2_version}
