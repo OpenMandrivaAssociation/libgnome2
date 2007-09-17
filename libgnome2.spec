@@ -6,14 +6,15 @@
 %define lib_major	0
 %define pkgname     libgnome
 %define lib_name	%mklibname gnome %{api_version} %{lib_major}
+%define develname %mklibname -d gnome %{api_version}
 
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
-Version: 2.19.1
-Release: %mkrel 3
+Version: 2.20.0
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
-Patch1: libgnome-2.8.0-background.patch
+Patch1: libgnome-2.20.0-background.patch
 # (fc) 2.2.0.1-2mdk Ia Ora as default theme
 Patch4: libgnome-defaulttheme.patch
 # (fc) 2.8.0-2mdk Stat gnome_user_private_dir before doing chmod, for SELinux (Fedora)
@@ -50,7 +51,7 @@ Requires:	%{name} >= %{version}
 %description -n %{lib_name}
 GNOME library contains extra API to let your GNOME applications shine.
 
-%package -n %{lib_name}-devel
+%package -n %develname
 Summary:	Static libraries, include files for GNOME
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
@@ -59,8 +60,9 @@ Requires:	%{name} = %{version}
 Requires:   libgnome-vfs2-devel
 Requires:   esound-devel >= %{req_esound_version}
 Requires:   libbonobo2_x-devel >= %{req_libbonobo_version}
+Obsoletes: %mklibname -d gnome 2 0
 
-%description -n %{lib_name}-devel
+%description -n %develname
 Static library and headers file
 needed in order to develop applications using the GNOME library
 
@@ -131,12 +133,14 @@ fi
 %{_libdir}/bonobo/monikers/*.so
 %{_libdir}/bonobo/servers/*
 %{_mandir}/man7/*
+%_datadir/gnome-background-properties/gnome-default.xml
+%_datadir/pixmaps/backgrounds/gnome/background-default.jpg
 
 %files -n %{lib_name}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/libgnome-%{api_version}.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %develname
 %defattr(-,root,root)
 %doc ChangeLog
 %doc %{_datadir}/gtk-doc/html/*
