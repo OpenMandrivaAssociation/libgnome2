@@ -11,10 +11,10 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.20.0
-Release: %mkrel 3
+Release: %mkrel 4
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
-Patch1: libgnome-2.20.0-background.patch
+Patch1: libgnome-background.patch
 # (fc) 2.2.0.1-2mdk Ia Ora as default theme
 Patch4: libgnome-defaulttheme.patch
 # (fc) 2.8.0-2mdk Stat gnome_user_private_dir before doing chmod, for SELinux (Fedora)
