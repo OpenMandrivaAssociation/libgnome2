@@ -11,10 +11,12 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.20.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
+#gw from svn: fix installation of schemas files
+Patch2: libgnome-3534-install-schemas-not-dotin-files.patch
 # (fc) 2.2.0.1-2mdk Ia Ora as default theme
 Patch4: libgnome-defaulttheme.patch
 # (fc) 2.8.0-2mdk Stat gnome_user_private_dir before doing chmod, for SELinux (Fedora)
@@ -69,12 +71,14 @@ needed in order to develop applications using the GNOME library
 %prep
 %setup -q -n %{pkgname}-%{version}
 %patch1 -p1 -b .background
+%patch2 -p1
 %patch4 -p1 -b .defaulttheme
 %patch5 -p1 -b .stathome
 %patch6 -p1 -b .sentinel
 %patch7 -p1 -b .va_list
 %patch8 -p1 -b .sound-defaults
-
+#needed by patch2:
+automake
 %build
 
 %configure2_5x --enable-gtk-doc
@@ -142,7 +146,7 @@ fi
 %files -f %{pkgname}-2.0.lang
 %defattr(-,root,root)
 %doc NEWS 
-%{_sysconfdir}/gconf/schemas/*
+%{_sysconfdir}/gconf/schemas/*.schemas
 %config(noreplace) %{_sysconfdir}/sound/events/*
 %{_bindir}/gnome-open
 %{_libdir}/bonobo/monikers/*.so
