@@ -30,6 +30,7 @@ License: LGPL
 Group: System/Libraries
 Url: http://www.gnome.org/
 Requires: desktop-common-data
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: libbzip2-devel
 BuildRequires: gnome-vfs2-devel >= %{req_gnomevfs2_version}
 BuildRequires: esound-devel >= %{req_esound_version}
