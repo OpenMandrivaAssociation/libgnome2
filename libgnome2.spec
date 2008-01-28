@@ -10,15 +10,13 @@
 
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
-Version: 2.20.1.1
-Release: %mkrel 2
+Version: 2.21.90
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
 # (fc) 2.2.0.1-2mdk Ia Ora as default theme
 Patch4: libgnome-defaulttheme.patch
-# (fc) 2.8.0-2mdk Stat gnome_user_private_dir before doing chmod, for SELinux (Fedora)
-Patch5: libgnome-2.15.1-stat-homedir.patch
 # (fc) 2.19.1-2mdv mark gnome_program_init with sentinel (SUSE)
 Patch6: libgnome-sentinel.patch
 # (fc) 2.19.1-2mdv fix va_list usage (SUSE)
@@ -70,7 +68,6 @@ needed in order to develop applications using the GNOME library
 %setup -q -n %{pkgname}-%{version}
 %patch1 -p1 -b .background
 %patch4 -p1 -b .defaulttheme
-%patch5 -p1 -b .stathome
 %patch6 -p1 -b .sentinel
 %patch7 -p1 -b .va_list
 %patch8 -p1 -b .sound-defaults
