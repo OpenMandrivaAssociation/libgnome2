@@ -11,7 +11,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.21.90
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -27,7 +27,6 @@ Patch8: libgnome-2.19.1-sounds-default.patch
 License: LGPL
 Group: System/Libraries
 Url: http://www.gnome.org/
-Requires: desktop-common-data
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: libbzip2-devel
 BuildRequires: gnome-vfs2-devel >= %{req_gnomevfs2_version}
@@ -94,12 +93,12 @@ rm -rf $RPM_BUILD_ROOT
 %define schemas desktop_gnome_accessibility_keyboard desktop_gnome_accessibility_startup desktop_gnome_applications_browser desktop_gnome_applications_help_viewer desktop_gnome_applications_terminal desktop_gnome_applications_window_manager desktop_gnome_background desktop_gnome_file_views desktop_gnome_interface desktop_gnome_peripherals_keyboard desktop_gnome_peripherals_mouse desktop_gnome_sound desktop_gnome_thumbnailers desktop_gnome_typing_break
 
 # update default theme on distribution upgrade
-%triggerpostun -- libgnome2 < 2.20.0-5mdv
+%triggerpostun -- libgnome2 < 2.21.90-2mdv
 if [ "x$META_CLASS" != "x" ]; then
  case "$META_CLASS" in
   *server) GTK2_THEME="Ia Ora Gray" ;;
-  *desktop) GTK2_THEME="Ia Ora One" ;;
-  *download) GTK2_THEME="Ia Ora Free";;
+  *desktop) GTK2_THEME="Ia Ora Blue" ;;
+  *download) GTK2_THEME="Ia Ora Smooth";;
  esac
 
   if [ "x$GTK2_THEME" != "x" ]; then 
@@ -112,8 +111,8 @@ fi
 if [ ! -d %{_sysconfdir}/gconf/gconf.xml.local-defaults/desktop/gnome/interface -a "x$META_CLASS" != "x" ]; then
  case "$META_CLASS" in
   *server) GTK2_THEME="Ia Ora Gray" ;;
-  *desktop) GTK2_THEME="Ia Ora One" ;;
-  *download) GTK2_THEME="Ia Ora Free";;
+  *desktop) GTK2_THEME="Ia Ora Blue" ;;
+  *download) GTK2_THEME="Ia Ora Smooth";;
  esac
 
   if [ "x$GTK2_THEME" != "x" ]; then 
