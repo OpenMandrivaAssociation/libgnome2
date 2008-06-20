@@ -120,7 +120,9 @@ if [ ! -d %{_sysconfdir}/gconf/gconf.xml.local-defaults/desktop/gnome/interface 
   fi
 fi
 
+%if %mdkversion < 200900
 %post_install_gconf_schemas %schemas
+%endif
 if [ ! -f /root/.gconf/desktop/gnome/background/%gconf.xml ]; then
   gconftool-2 --set /desktop/gnome/background/picture_filename --type=string /usr/share/mdk/backgrounds/root/default.png 
   gconftool-2 --set /desktop/gnome/background/picture_options --type=string none
