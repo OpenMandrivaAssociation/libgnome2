@@ -10,8 +10,8 @@
 
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
-Version: 2.23.4
-Release: %mkrel 4
+Version: 2.23.5
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -25,8 +25,6 @@ Patch7: libgnome-2.19.1-va_list.patch
 Patch8: libgnome-2.19.1-sounds-default.patch
 # (fc) 2.23.4-4mdv use gvfs/gio to open urls with gnome-open (Mdv bug #40894)
 Patch9: libgnome-2.23.4-gvfs.patch
-# (fc) 2.23.4-4mdv add schemas for sound theme (SVN)
-Patch10: libgnome-2.23.4-soundtheme.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org/
@@ -72,7 +70,6 @@ needed in order to develop applications using the GNOME library
 %patch4 -p1 -b .defaulttheme
 %patch6 -p1 -b .sentinel
 %patch7 -p1 -b .va_list
-%patch10 -p1 -b .soundtheme
 %patch8 -p1 -b .sound-defaults
 %patch9 -p1 -b .gvfs
 
