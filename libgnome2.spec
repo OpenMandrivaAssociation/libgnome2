@@ -11,7 +11,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.23.5
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -98,33 +98,11 @@ rm -rf $RPM_BUILD_ROOT
 %define schemas desktop_gnome_accessibility_keyboard desktop_gnome_accessibility_startup desktop_gnome_applications_at_mobility desktop_gnome_applications_at_visual desktop_gnome_applications_browser desktop_gnome_applications_terminal desktop_gnome_applications_office desktop_gnome_applications_window_manager desktop_gnome_background desktop_gnome_file_views desktop_gnome_interface desktop_gnome_lockdown desktop_gnome_peripherals_keyboard desktop_gnome_peripherals_mouse desktop_gnome_sound desktop_gnome_thumbnail_cache desktop_gnome_thumbnailers desktop_gnome_typing_break
 
 # update default theme on distribution upgrade
-%triggerpostun -- libgnome2 < 2.21.90-2mdv
-if [ "x$META_CLASS" != "x" ]; then
- case "$META_CLASS" in
-  *server) GTK2_THEME="Ia Ora Gray" ;;
-  *desktop) GTK2_THEME="Ia Ora Blue" ;;
-  *download) GTK2_THEME="Ia Ora Smooth";;
- esac
-
-  if [ "x$GTK2_THEME" != "x" ]; then 
-  %{_bindir}/gconftool-2 --config-source=xml::/etc/gconf/gconf.xml.local-defaults/ --direct --type=string --set /desktop/gnome/interface/gtk_theme "$GTK2_THEME" > /dev/null
-  fi
-fi
+%triggerpostun -- libgnome2 < 2.23.5-2mdv
+%{_bindir}/gconftool-2 --config-source=xml::/etc/gconf/gconf.xml.local-defaults/ --direct --unset /desktop/gnome/interface/gtk_theme > /dev/null
 
 
 %post
-if [ ! -d %{_sysconfdir}/gconf/gconf.xml.local-defaults/desktop/gnome/interface -a "x$META_CLASS" != "x" ]; then
- case "$META_CLASS" in
-  *server) GTK2_THEME="Ia Ora Gray" ;;
-  *desktop) GTK2_THEME="Ia Ora Blue" ;;
-  *download) GTK2_THEME="Ia Ora Smooth";;
- esac
-
-  if [ "x$GTK2_THEME" != "x" ]; then 
-  %{_bindir}/gconftool-2 --config-source=xml::/etc/gconf/gconf.xml.local-defaults/ --direct --type=string --set /desktop/gnome/interface/gtk_theme "$GTK2_THEME" > /dev/null
-  fi
-fi
-
 %if %mdkversion < 200900
 %post_install_gconf_schemas %schemas
 %endif
