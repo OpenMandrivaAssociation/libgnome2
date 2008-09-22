@@ -10,7 +10,7 @@
 
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
-Version: 2.24.0
+Version: 2.24.1
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
