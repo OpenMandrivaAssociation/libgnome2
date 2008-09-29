@@ -11,7 +11,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.24.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -23,6 +23,8 @@ Patch6: libgnome-sentinel.patch
 Patch7: libgnome-2.19.1-va_list.patch
 # (fc) 2.19.1-2mdv enable sound server and events by default, remove almost default sound events
 Patch8: libgnome-2.19.1-sounds-default.patch
+# (fc) 2.24.1-2mdv use www-browser as default browser
+Patch9: libgnome-2.24.1-www-browser.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org/
@@ -69,6 +71,7 @@ needed in order to develop applications using the GNOME library
 %patch6 -p1 -b .sentinel
 %patch7 -p1 -b .va_list
 %patch8 -p1 -b .sound-defaults
+%patch9 -p1 -b .www-browser
 
 %build
 %configure2_5x --enable-gtk-doc
