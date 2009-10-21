@@ -11,7 +11,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.28.0
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -25,6 +25,8 @@ Patch7: libgnome-2.19.1-va_list.patch
 Patch8: libgnome-2.19.1-sounds-default.patch
 # (fc) 2.24.1-2mdv use www-browser as default browser
 Patch9: libgnome-2.24.1-www-browser.patch
+# (fc) 2.28.0-2mdv put back icons in menu and buttons
+Patch10: libgnome-2.28.0-icons.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org/
@@ -72,6 +74,7 @@ needed in order to develop applications using the GNOME library
 %patch7 -p1 -b .va_list
 %patch8 -p1 -b .sound-defaults
 %patch9 -p1 -b .www-browser
+%patch10 -p1 -b .icons
 
 %build
 %configure2_5x --enable-gtk-doc
