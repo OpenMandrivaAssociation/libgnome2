@@ -11,7 +11,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.28.0
-Release: %mkrel 3
+Release: %mkrel 4
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -31,6 +31,7 @@ License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
+BuildRequires: popt-devel
 BuildRequires: libbzip2-devel
 BuildRequires: gnome-vfs2-devel >= %{req_gnomevfs2_version}
 BuildRequires: esound-devel >= %{req_esound_version}
