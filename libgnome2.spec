@@ -11,7 +11,7 @@
 Summary: GNOME libraries
 Name: %{pkgname}%{api_version}
 Version: 2.30.0
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1: libgnome-background.patch
@@ -39,10 +39,19 @@ BuildRequires: libxslt-devel >= %{req_libxslt_version}
 BuildRequires: gtk-doc
 BuildRequires: libbonobo2_x-devel >= %{req_libbonobo_version}
 BuildRequires: intltool >= 0.40.0
+Requires: %{name}-schemas >= %{version}-%{release}
 
 %description
 Data files for the GNOME library such as translations.
 
+
+%package schemas
+Summary:	Default configuration for some GNOME software
+Group:		%{group}
+Conflicts:	%{name} < 2.30.0-2mdv
+
+%description schemas
+Default configuration for GNOME software
 
 %package -n %{lib_name}
 Summary:	Dynamic libraries for GNOME applications
@@ -113,7 +122,7 @@ if [ "x$META_CLASS" != "x" ]; then
 fi
 
 
-%post
+%post schemas
 %if %mdkversion < 200900
 %post_install_gconf_schemas %schemas
 %endif
@@ -134,7 +143,7 @@ if [ ! -f /root/.gconf/desktop/gnome/background/%gconf.xml ]; then
   gconftool-2 --set /desktop/gnome/background/primary_color --type=string "#B20003"
 fi
 
-%preun
+%preun schemas
 %preun_uninstall_gconf_schemas %schemas
 
 %if %mdkversion < 200900
@@ -148,24 +157,6 @@ fi
 %files -f %{pkgname}-2.0.lang
 %defattr(-,root,root)
 %doc NEWS 
-%{_sysconfdir}/gconf/schemas/desktop_gnome_accessibility_keyboard.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_accessibility_startup.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_at_mobility.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_at_visual.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_browser.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_office.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_terminal.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_window_manager.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_background.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_file_views.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_interface.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_lockdown.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_keyboard.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_mouse.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_sound.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_thumbnail_cache.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_thumbnailers.schemas 
-%{_sysconfdir}/gconf/schemas/desktop_gnome_typing_break.schemas
 %config(noreplace) %{_sysconfdir}/sound/events/*
 %{_bindir}/gnome-open
 %{_libdir}/bonobo/monikers/*.so
@@ -188,4 +179,23 @@ fi
 %attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.a
 
-
+%files schemas
+%defattr(-,root,root)
+%{_sysconfdir}/gconf/schemas/desktop_gnome_accessibility_keyboard.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_accessibility_startup.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_at_mobility.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_at_visual.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_browser.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_office.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_terminal.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_applications_window_manager.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_background.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_file_views.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_interface.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_lockdown.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_keyboard.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_mouse.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_sound.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_thumbnail_cache.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_thumbnailers.schemas 
+%{_sysconfdir}/gconf/schemas/desktop_gnome_typing_break.schemas
