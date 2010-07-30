@@ -38,6 +38,7 @@ BuildRequires: esound-devel >= %{req_esound_version}
 BuildRequires: libxslt-devel >= %{req_libxslt_version}
 BuildRequires: gtk-doc
 BuildRequires: libbonobo2_x-devel >= %{req_libbonobo_version}
+BuildRequires: libcanberra-devel
 BuildRequires: intltool >= 0.40.0
 Requires: %{name}-schemas >= %{version}-%{release}
 
