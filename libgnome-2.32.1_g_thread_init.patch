@@ -1,0 +1,13 @@
+--- libgnome-2.32.1/libgnome/gnome-program.c~	2010-02-07 11:04:26.000000000 -0700
++++ libgnome-2.32.1/libgnome/gnome-program.c	2011-11-15 17:25:17.901564765 -0700
+@@ -1878,10 +1878,6 @@
+     GnomeProgram *program;
+     va_list args;
+ 
+-    /* g_thread_init() has to be the first GLib function called ever */
+-    if (!g_threads_got_initialized)
+-        g_thread_init (NULL);
+-
+     g_type_init ();
+ 
+     va_start(args, first_property_name);

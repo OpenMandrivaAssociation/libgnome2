@@ -1,0 +1,12 @@
+diff -p -up libgnome-2.24.1/schemas/desktop_gnome_applications_browser.schemas.in.www-browser libgnome-2.24.1/schemas/desktop_gnome_applications_browser.schemas.in
+--- libgnome-2.24.1/schemas/desktop_gnome_applications_browser.schemas.in.www-browser	2008-09-29 11:01:21.000000000 +0200
++++ libgnome-2.24.1/schemas/desktop_gnome_applications_browser.schemas.in	2008-09-29 11:01:38.000000000 +0200
+@@ -6,7 +6,7 @@
+       <applyto>/desktop/gnome/applications/browser/exec</applyto>
+       <owner>gnome</owner>
+       <type>string</type>
+-      <default>mozilla</default>
++      <default>www-browser</default>
+       <locale name="C">
+         <short>Default browser</short>
+         <long>Default browser for all URLs.</long>

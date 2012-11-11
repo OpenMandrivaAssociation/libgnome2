@@ -1,0 +1,11 @@
+--- libgnome-2.16.0/schemas/desktop_gnome_interface.schemas.in.in.defaulttheme	2006-09-01 12:27:54.000000000 +0200
++++ libgnome-2.16.0/schemas/desktop_gnome_interface.schemas.in.in	2006-09-04 18:08:59.000000000 +0200
+@@ -141,7 +141,7 @@
+       <applyto>/desktop/gnome/interface/gtk_theme</applyto>
+       <owner>gnome</owner>
+       <type>string</type>
+-      <default>Clearlooks</default>
++      <default>Ia Ora Steel</default>
+       <locale name="C">
+ 	<short>Gtk+ Theme</short>
+ 	<long>Basename of the default theme used by gtk+.</long>

@@ -1,0 +1,34 @@
+From 13476f2a175ec29fc2389792e1bf0bcd100136b4 Mon Sep 17 00:00:00 2001
+From: Frederic Crozat <fcrozat@mandriva.com>
+Date: Wed, 21 Oct 2009 18:33:10 +0200
+Subject: [PATCH] put back icons in menu and buttons
+
+---
+ schemas/desktop_gnome_interface.schemas.in.in |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/schemas/desktop_gnome_interface.schemas.in.in b/schemas/desktop_gnome_interface.schemas.in.in
+index 975c557..b1db947 100644
+--- a/schemas/desktop_gnome_interface.schemas.in.in
++++ b/schemas/desktop_gnome_interface.schemas.in.in
+@@ -65,7 +65,7 @@
+       <applyto>/desktop/gnome/interface/menus_have_icons</applyto>
+       <owner>gnome</owner>
+       <type>bool</type>
+-      <default>false</default>
++      <default>true</default>
+       <locale name="C">
+         <short>Menus Have Icons</short>
+         <long>Whether menus may display an icon next to a menu entry.</long>
+@@ -76,7 +76,7 @@
+       <applyto>/desktop/gnome/interface/buttons_have_icons</applyto>
+       <owner>gnome</owner>
+       <type>bool</type>
+-      <default>false</default>
++      <default>true</default>
+       <locale name="C">
+         <short>Buttons Have Icons</short>
+         <long>Whether buttons may display an icon in addition to the button text.</long>
+-- 
+1.6.4.4
+

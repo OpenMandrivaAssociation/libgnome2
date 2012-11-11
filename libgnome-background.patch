@@ -1,0 +1,30 @@
+diff -p -up libgnome-2.25.1/schemas/desktop_gnome_background.schemas.in.in.background libgnome-2.25.1/schemas/desktop_gnome_background.schemas.in.in
+--- libgnome-2.25.1/schemas/desktop_gnome_background.schemas.in.in.background	2008-01-08 10:04:30.000000000 +0100
++++ libgnome-2.25.1/schemas/desktop_gnome_background.schemas.in.in	2009-03-06 15:01:31.000000000 +0100
+@@ -16,7 +16,7 @@
+         <applyto>/desktop/gnome/background/picture_options</applyto>
+         <owner>gnome</owner>
+         <type>string</type>
+-        <default>zoom</default>
++        <default>stretched</default>
+         <locale name="C">
+         <short>Picture Options</short>
+         <long>Determines how the image set by wallpaper_filename is
+@@ -29,7 +29,7 @@
+         <applyto>/desktop/gnome/background/picture_filename</applyto>
+         <owner>gnome</owner>
+         <type>string</type>
+-	<default>@datadir@/pixmaps/backgrounds/gnome/background-default.jpg</default>
++	<default>@datadir@/mdk/backgrounds/Mandriva.xml</default>
+         <locale name="C">
+         <short>Picture Filename</short>
+         <long>File to use for the background image.</long>
+@@ -51,7 +51,7 @@
+         <applyto>/desktop/gnome/background/primary_color</applyto>
+         <owner>gnome</owner>
+         <type>string</type>
+-        <default>#66ba00</default>
++        <default>#21459C</default>
+         <locale name="C">
+         <short>Primary Color</short>
+         <long>Left or Top color when drawing gradients, or the solid color.</long>

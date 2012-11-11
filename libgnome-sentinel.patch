@@ -1,0 +1,11 @@
+--- libgnome-2.15.1/libgnome/gnome-program.h
++++ libgnome-2.15.1/libgnome/gnome-program.h
+@@ -226,7 +226,7 @@
+ gnome_program_init (const char *app_id, const char *app_version,
+ 		    const GnomeModuleInfo *module_info,
+ 		    int argc, char **argv,
+-		    const char *first_property_name, ...);
++		    const char *first_property_name, ...) G_GNUC_NULL_TERMINATED;
+ 
+ GnomeProgram *
+ gnome_program_initv (GType type,

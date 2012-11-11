@@ -1,0 +1,81 @@
+diff -p -up libgnome-2.23.4/gnome-data/gnome-2.soundlist.in.sound-defaults libgnome-2.23.4/gnome-data/gnome-2.soundlist.in
+--- libgnome-2.23.4/gnome-data/gnome-2.soundlist.in.sound-defaults	2008-05-29 17:17:44.000000000 +0200
++++ libgnome-2.23.4/gnome-data/gnome-2.soundlist.in	2008-08-12 15:20:06.000000000 +0200
+@@ -2,29 +2,29 @@
+ _description=System events
+ 
+ [login]
+-file=startup3.wav
++file=ia_ora-startup.wav
+ _description=Log in
+ 
+ [logout]
+-file=shutdown1.wav
++file=ia_ora-shutdown.wav
+ _description=Log out
+ 
+ [info]
+-file=info.wav
++file=
+ _description=Informational message
+ 
+ [warning]
+-file=warning.wav
++file=
+ _description=Warning message
+ 
+ [error]
+-file=error.wav
++file=
+ _description=Error message
+ 
+ [question]
+-file=question.wav
++file=
+ _description=Question dialog
+ 
+ [generic]
+-file=generic.wav
++file=
+ _description=Miscellaneous message
+diff -p -up libgnome-2.23.4/gnome-data/gtk-events-2.soundlist.in.sound-defaults libgnome-2.23.4/gnome-data/gtk-events-2.soundlist.in
+--- libgnome-2.23.4/gnome-data/gtk-events-2.soundlist.in.sound-defaults	2008-05-29 17:17:44.000000000 +0200
++++ libgnome-2.23.4/gnome-data/gtk-events-2.soundlist.in	2008-08-12 15:20:06.000000000 +0200
+@@ -2,13 +2,13 @@
+ _description=User interface events
+ 
+ [clicked]
+-file=gtk-events/clicked.wav
++file=
+ _description=Click on command button
+ 
+ [activate]
+-file=gtk-events/activate.wav
++file=
+ _description=Choose menu item
+ 
+ [toggled]
+-file=gtk-events/toggled.wav
++file=
+ _description=Select check box
+diff -p -up libgnome-2.23.4/schemas/desktop_gnome_sound.schemas.in.sound-defaults libgnome-2.23.4/schemas/desktop_gnome_sound.schemas.in
+--- libgnome-2.23.4/schemas/desktop_gnome_sound.schemas.in.sound-defaults	2008-08-12 15:20:06.000000000 +0200
++++ libgnome-2.23.4/schemas/desktop_gnome_sound.schemas.in	2008-08-12 15:24:31.000000000 +0200
+@@ -40,7 +40,7 @@
+       <applyto>/desktop/gnome/sound/event_sounds</applyto>
+       <owner>gnome</owner>
+       <type>bool</type>
+-      <default>false</default>
++      <default>true</default>
+       <locale name="C">
+         <short>Sounds for events</short>
+         <long>Whether to play sounds on user events.</long>
+@@ -51,7 +51,7 @@
+       <applyto>/desktop/gnome/sound/theme_name</applyto>
+       <owner>gnome</owner>
+       <type>string</type>
+-      <default>freedesktop</default>
++      <default>ia_ora</default>
+       <locale name="C">
+         <short>Sound theme name</short>
+         <long>The XDG sound theme to use for event sounds.</long>
