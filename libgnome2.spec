@@ -13,7 +13,7 @@
 Summary:	GNOME libraries
 Name:		%{pkgname}%{api}
 Version:	2.32.1
-Release:	7
+Release:	8
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://www.gnome.org/
