@@ -34,6 +34,7 @@ Patch9:		libgnome-2.24.1-www-browser.patch
 Patch10:	libgnome-2.28.0-icons.patch
 # md glib2.0 >= 2.31.0 g_thread_init
 Patch11:	libgnome-2.32.1_g_thread_init.patch
+Patch12:	fix-for-new-glib.patch
 
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	pkgconfig(gconf-2.0) >= 1.1.11 GConf2
