@@ -16,7 +16,7 @@ Version:	2.32.1
 Release:	20
 Group:		System/Libraries
 License:	LGPLv2+
-Url:		http://www.gnome.org/
+Url:		https://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libgnome/%{url_ver}/%{pkgname}-%{version}.tar.bz2
 # (fc) 1.116.0-2mdk use Mdk default background
 Patch1:		libgnome-background.patch
