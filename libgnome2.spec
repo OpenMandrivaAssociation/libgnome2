@@ -36,6 +36,11 @@ Patch10:	libgnome-2.28.0-icons.patch
 Patch11:	libgnome-2.32.1_g_thread_init.patch
 Patch12:	fix-for-new-glib.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	pkgconfig(gconf-2.0) >= 1.1.11 GConf2
 BuildRequires:	pkgconfig(glib-2.0) >= 2.8.0
